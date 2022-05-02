@@ -28,8 +28,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              { "glob": "books-db.json", "input": "./", "output": "./assets/" }
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"

@@ -27,7 +27,7 @@ export class AddBookComponent implements OnInit {
       year: [null, [Validators.required]],
       authorName: [null, [Validators.required]],
     })
-    this.submitCreateBook();
+    // this.submitCreateBook();
   }
   get bookFormCtrl() {
     return this.createBookFormGroup.controls;

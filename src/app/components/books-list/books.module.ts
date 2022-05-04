@@ -12,13 +12,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AddBookComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     BooksListComponent,
     AddBookComponent,
-    FormsModule,
-    ReactiveFormsModule
+  
   ]
 })
 export class BooksModule { }

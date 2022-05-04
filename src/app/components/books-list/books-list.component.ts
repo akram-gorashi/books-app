@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { DialogService } from '@ngneat/dialog';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/services/books/books.service';
+import { AddBookComponent } from '../add-book/add-book.component';
 
 @Component({
   selector: 'app-books-list',
@@ -10,7 +12,7 @@ import { BooksService } from 'src/app/services/books/books.service';
 export class BooksListComponent implements OnInit {
   booksList: Book[] = [];
 
-  constructor(private booksService: BooksService) { }
+  constructor(private booksService: BooksService, private dialog: DialogService) { }
 
   ngOnInit(): void {
     this.getBooks();
@@ -27,5 +29,9 @@ export class BooksListComponent implements OnInit {
       console.log('success')
       this.getBooks();
     })
+  }
+
+  openAddBookForm() {
+    this.dialog.open(AddBookComponent);
   }
 }

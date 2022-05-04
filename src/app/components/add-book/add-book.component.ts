@@ -22,6 +22,7 @@ export class AddBookComponent implements OnInit {
 
   initCreateBookForm() {
     this.createBookFormGroup = this.formBuilder.group({
+      id: [],
       title: [null, [Validators.required]],
       imageUrl: [null, [Validators.required]],
       year: [null, [Validators.required]],
@@ -34,16 +35,13 @@ export class AddBookComponent implements OnInit {
   }
   submitCreateBook() {
     // mocking submit request
-
-    let tempBook: Book = Object.assign({}, {
-      id: this.bookId,
-      title: "Ender's Game",
-      imageUrl: "",
-      year: 1985,
-      authorName: "Orson Scott Card"
-    })
-    this.booksService.addBook(tempBook).subscribe(res => {
-      console.log('success')
-    })
+    if(this.createBookFormGroup.invalid) {
+      return
+    } else {
+      this.createBookFormGroup.value.id = this.bookId;
+      this.booksService.addBook(this.createBookFormGroup.value).subscribe(res => {
+        console.log('success')
+      })
+    }
   }
 }

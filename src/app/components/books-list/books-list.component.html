@@ -1,3 +1,4 @@
+<button (click)="openAddBookForm()">addBook</button>
 <div class="books-wrapper">
     <h2>Favorite books :</h2>
     <div class="container" *ngFor="let book of booksList">
@@ -20,11 +21,11 @@
                         </div>
 
                         <div class="container_tags">
-                            <span>tags</span>
+                            <span>year</span>
                             <div class="tags">
                                 <ul>
-                                    <li>design</li>
-                                    <li>front end</li>
+                                    
+                                    <li>{{book.year}}</li>
                                 </ul>
                             </div>
 

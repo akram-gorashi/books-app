@@ -1,1 +1,21 @@
-<p>add-book works!</p>
+<form [formGroup]="createBookFormGroup" (ngSubmit)="submitCreateBook()" class="card-form">
+    <div class="input">
+        <input type="text" class="input-field" formControlName="title"/>
+        <label class="input-label">Title</label>
+    </div>
+    <div class="input">
+        <input type="text" class="input-field" formControlName="imageUrl"/>
+        <label class="input-label">Image Url</label>
+    </div>
+    <div class="input">
+        <input type="number" class="input-field" formControlName="year"/>
+        <label class="input-label">Year</label>
+    </div>
+    <div class="input">
+        <input type="text" class="input-field" formControlName="authorName"/>
+        <label class="input-label">Author Name</label>
+    </div>
+    <div class="action">
+        <button type="submit" class="action-button">Add book</button>
+    </div>
+</form>

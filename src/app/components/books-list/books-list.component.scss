@@ -1,12 +1,25 @@
+.row {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 5em;
+}
+
+.add-button {
+   /*  padding: 16px;
+    height: 250px; */
+    justify-self: end;
+
+}
+
 .books-wrapper {
     margin: 5em;
 
     .container {
         //   width: 100%;
         //   height: 100vh;
-        display: inline-flex;
+      /*   display: inline-flex;
         justify-content: center;
-        align-items: center;
+        align-items: center; */
         .post {
             width: 350px;
             height: 500px;
@@ -194,35 +207,27 @@
         }
     }
 
-
-
-    @keyframes top {
-        0% {
-            opacity: 0;
-            bottom: -80px
-        }
-
-        100% {
-            opacity: 1;
-            bottom: 0px
-        }
+    .cdk-drag-preview {
+        box-sizing: border-box;
+        border-radius: 4px;
+        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                    0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                    0 3px 14px 2px rgba(0, 0, 0, 0.12);
+      }
+      
+      .cdk-drag-placeholder {
+        opacity: 0;
+      }
+      
+      .cdk-drag-animating {
+        transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+      }
+      
+      .example-box:last-child {
+        border: none;
+      }
+      
+      .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+        transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+      }
     }
-
-    @keyframes icon {
-        0% {
-            opacity: 0;
-            transform: scale(0.0);
-        }
-
-        50% {
-            opacity: 1;
-            transform: scale(1.3) rotate(-02deg);
-
-        }
-
-        100% {
-            opacity: 1;
-            bottom: 0px;
-        }
-    }
-}

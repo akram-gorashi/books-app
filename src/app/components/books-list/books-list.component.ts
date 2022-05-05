@@ -3,7 +3,7 @@ import { DialogService } from '@ngneat/dialog';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/services/books/books.service';
 import { AddBookComponent } from '../add-book/add-book.component';
-
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 @Component({
   selector: 'app-books-list',
   templateUrl: './books-list.component.html',
@@ -33,5 +33,9 @@ export class BooksListComponent implements OnInit {
 
   openAddBookForm() {
     this.dialog.open(AddBookComponent);
+  }
+  drop(event: CdkDragDrop<Book[]>) {
+    console.log(event)
+    moveItemInArray(this.booksList, event.previousIndex, event.currentIndex);
   }
 }

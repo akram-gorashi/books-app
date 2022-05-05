@@ -1,11 +1,21 @@
-<button (click)="openAddBookForm()">addBook</button>
-<div class="books-wrapper">
-    <h2>Favorite books :</h2>
-    <div class="container" *ngFor="let book of booksList">
+
+<div class="row">
+    <div class="column">
+        <h2>Favorite books :</h2>
+    </div>
+    <div class="add-button" >
+        <!-- <button  (click)="openAddBookForm()"></button> -->
+        <div class='button -green center'  (click)="openAddBookForm()">Add Book</div>
+
+    </div>
+  </div>
+<div class="books-wrapper"  cdkDropList
+(cdkDropListDropped)="drop($event)">
+    <div cdkDrag class="container" *ngFor="let book of booksList; let bookIndex = index" >
         <div class="post">
             <div class="header_post">
-                <div class="image-area" ><img
-                        src="https://images.pexels.com/photos/2529973/pexels-photo-2529973.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                <!-- src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnCjln17ydUIbvLPuhvIQKhc_nloL_iw0TsQ&usqp=CAU" -->
+                <div class="image-area" ><img 
                         alt=""> <a class="remove-image" (click)="deleteBook(book.id)" style="display: inline;"><i class="fa fa-trash" aria-hidden="true"></i></a>
                 </div>
             </div>

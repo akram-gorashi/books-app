@@ -1,7 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { DialogModule } from '@ngneat/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BooksModule } from './components/books-list/books.module';
@@ -15,7 +14,6 @@ import { BooksModule } from './components/books-list/books.module';
     AppRoutingModule,
     BooksModule,
     HttpClientModule,
-    DialogModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

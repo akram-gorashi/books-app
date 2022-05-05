@@ -4,6 +4,7 @@ import { AddBookComponent } from '../add-book/add-book.component';
 import { BooksListComponent } from './books-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DialogModule } from '@ngneat/dialog';
 
 
 
@@ -16,7 +17,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    DragDropModule
+    DragDropModule,
+    DialogModule.forRoot()
   ],
   exports: [
     BooksListComponent,

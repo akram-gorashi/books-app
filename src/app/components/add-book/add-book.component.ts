@@ -26,7 +26,7 @@ export class AddBookComponent implements OnInit {
     this.createBookFormGroup = this.formBuilder.group({
       id: [],
       title: [null, [Validators.required]],
-      imageUrl: [null, [Validators.required]],
+      imageUrl: ['https://images-na.ssl-images-amazon.com/images/I/51I9v1NPTVS._SX328_BO1,204,203,200_.jpg', [Validators.required]],
       year: [null, [Validators.required]],
       authorName: [null, [Validators.required]],
     });

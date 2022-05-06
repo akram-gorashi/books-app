@@ -24,7 +24,7 @@
         <div class="header_post">
           <!-- src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnCjln17ydUIbvLPuhvIQKhc_nloL_iw0TsQ&usqp=CAU" -->
           <div class="image-area">
-            <img alt="" />
+            <img [src]="book.imageUrl" alt="" />
             <a
               class="remove-image"
               (click)="deleteBook(book.id)"

@@ -5,12 +5,12 @@ import { BooksService } from 'src/app/services/books/books.service';
 import * as uuid from 'uuid';
 
 @Component({
-  selector: 'app-add-book',
-  templateUrl: './add-book.component.html',
-  styleUrls: ['./add-book.component.scss'],
+  selector: 'app-add-books-list',
+  templateUrl: './add-books-list.component.html',
+  styleUrls: ['../add-book/add-book.component.scss']
 })
-export class AddBookComponent implements OnInit {
-  createBookFormGroup!: FormGroup;
+export class AddBooksListComponent implements OnInit {
+  createBooksListFormGroup!: FormGroup;
   bookId = uuid.v4();
 
   constructor(
@@ -23,27 +23,24 @@ export class AddBookComponent implements OnInit {
   }
 
   initCreateBookForm() {
-    this.createBookFormGroup = this.formBuilder.group({
+    this.createBooksListFormGroup = this.formBuilder.group({
       id: [],
       title: [null, [Validators.required]],
-      imageUrl: ['https://images-na.ssl-images-amazon.com/images/I/51I9v1NPTVS._SX328_BO1,204,203,200_.jpg', [Validators.required]],
-      year: [null, [Validators.required]],
-      authorName: [null, [Validators.required]],
     });
   }
   get bookFormCtrl() {
-    return this.createBookFormGroup.controls;
+    return this.createBooksListFormGroup.controls;
   }
   submitCreateBook() {
-    if (this.createBookFormGroup.invalid) {
+    if (this.createBooksListFormGroup.invalid) {
       return;
     } else {
-      this.createBookFormGroup.value.id = this.bookId;
+      this.createBooksListFormGroup.value.id = this.bookId;
       this.booksService
-        .addBook(this.createBookFormGroup.value)
+        .addBook(this.createBooksListFormGroup.value)
         .subscribe((res) => {
           this.dialog.closeAll();
-          // this.booksService.getBooks();
+           this.booksService.getBooksList();
         });
     }
   }

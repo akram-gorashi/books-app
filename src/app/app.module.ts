@@ -4,14 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BooksModule } from './components/books-list/books.module';
-import { BookCategoryComponent } from './components/book-category/book-category.component';
-import { BookListItemComponent } from './components/book-list-item/book-list-item.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    BookCategoryComponent,
-    BookListItemComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

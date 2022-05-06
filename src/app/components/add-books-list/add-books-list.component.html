@@ -1,0 +1,14 @@
+<form
+  [formGroup]="createBooksListFormGroup"
+  (ngSubmit)="submitCreateBook()"
+  class="card-form"
+>
+  <div class="input">
+    <input type="text" class="input-field" formControlName="title" />
+    <label class="input-label">Title</label>
+  </div>
+  
+  <div class="action">
+    <button type="submit" class="button -green center">Add Books List</button>
+  </div>
+</form>

@@ -1,1 +1,11 @@
+<div class="row">
+  <div class="add-button" style="justify-self: end">
+    <div class="button -primary center" (click)="openAddBooksListForm()">
+      Add Books List
+    </div>
+  </div>
+</div>
 
+<div class="books-list-item" *ngFor="let bookListItem of booksList">
+  <app-book-list-item [bookListItem]="bookListItem"></app-book-list-item>
+</div>

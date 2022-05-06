@@ -1,7 +1,8 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DialogService } from '@ngneat/dialog';
 import { BookListItem } from 'src/app/models/BookListItem';
+import { BooksList } from 'src/app/models/BooksList';
 import { BooksService } from 'src/app/services/books/books.service';
 import { AddBookComponent } from '../add-book/add-book.component';
 
@@ -11,7 +12,7 @@ import { AddBookComponent } from '../add-book/add-book.component';
   styleUrls: ['./book-list-item.component.scss']
 })
 export class BookListItemComponent implements OnInit {
-  booksList: BookListItem[] = [];
+  @Input() bookListItem!: BooksList;
 
   constructor(
     private booksService: BooksService,
@@ -22,9 +23,9 @@ export class BookListItemComponent implements OnInit {
     this.getBooks();
   }
   getBooks() {
-    this.booksService.getBooks();
+    // this.booksService.getBooks();
     this.booksService.bookListBS.subscribe((books) => {
-      this.booksList = books;
+      // this.booksList = books;
     });
   }
 
@@ -35,10 +36,20 @@ export class BookListItemComponent implements OnInit {
   }
 
   openAddBookForm() {
-    this.dialog.open(AddBookComponent);
+    this.dialog.open(AddBookComponent, {
+      data: {
+        booksListId: this.bookListItem.id
+      }
+    });
   }
   drop(event: CdkDragDrop<BookListItem[]>) {
     console.log(event);
-    moveItemInArray(this.booksList, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.bookListItem.books, event.previousIndex, event.currentIndex);
+  }
+
+  deleteBooksList(booksListId: string) {
+    this.booksService.deleteBooksList(booksListId).subscribe((res:any) => {
+      this.booksService.getBooksList();
+    });
   }
 }

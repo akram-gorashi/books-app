@@ -1,6 +1,6 @@
 import { BookListItem } from "./BookListItem";
 
-export interface BookList {
+export interface BooksList {
     id: string;
     title: string;
     books: BookListItem[];

@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DialogModule } from '@ngneat/dialog';
 import { BookListItemComponent } from '../book-list-item/book-list-item.component';
+import { AddBooksListComponent } from '../add-books-list/add-books-list.component';
 
 
 
@@ -13,7 +14,8 @@ import { BookListItemComponent } from '../book-list-item/book-list-item.componen
   declarations: [
     BooksListComponent,
     AddBookComponent,
-    BookListItemComponent
+    BookListItemComponent,
+    AddBooksListComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { BookListItemComponent } from '../book-list-item/book-list-item.componen
   exports: [
     BooksListComponent,
     AddBookComponent,
-    BookListItemComponent
+    BookListItemComponent,
+    AddBooksListComponent
   ]
 })
 export class BooksModule { }

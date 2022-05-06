@@ -1,11 +1,16 @@
 <section style="margin: 2em 5em">
     <div class="row">
       <div class="column">
-        <h2>Favorite books :</h2>
+        <h2>{{bookListItem.title}} :</h2>
       </div>
       <div class="add-button" style="justify-self: end">
-        <div class="button -green center" (click)="openAddBookForm()">
+        <div class="button -primary center" (click)="openAddBookForm()">
           Add Book
+        </div>
+      </div>
+      <div class="add-button" >
+        <div class="button -primary center" (click)="deleteBooksList(bookListItem.id)">
+          Remove Books List
         </div>
       </div>
     </div>
@@ -18,7 +23,7 @@
       <div
         cdkDrag
         class="container"
-        *ngFor="let book of booksList; let bookIndex = index"
+        *ngFor="let book of bookListItem.books; let bookIndex = index"
       >
         <div class="post">
           <div class="header_post">

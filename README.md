@@ -23,7 +23,7 @@ These are the most useful commands defined in `package.json`:
 * `npm run build` - runs the TypeScript compiler and asset copier once.
 * `npm run lint` - runs `tslint` on the project files.
 * `npm run build:watch` - runs the TypeScript compiler and asset copier in "watch mode"; when changes occur to source files, they will be recompiled or copied into `dist/`.
-* `npm run serve` - runs `lite-server`.
+
 
 These are the test-related scripts:
 

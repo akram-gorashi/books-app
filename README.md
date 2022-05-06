@@ -4,7 +4,7 @@
 
 ```shell
 git clone https://github.com/akram-gorashi/books-app.git
-cd intern-angular
+cd books-app
 ```
 
 ### Install npm packages
@@ -14,17 +14,12 @@ Install the `npm` packages described in the `package.json` and verify that it wo
 ```shell
 npm install
 ```
-
-The `npm start` command builds (compiles TypeScript and copies assets) the application into `dist/`, watches for changes to the source files, and runs `lite-server` on port `3000`.
-
-Shut it down manually with `Ctrl-C`.
-
 #### npm scripts
 
 These are the most useful commands defined in `package.json`:
 
 * `npm run start` - runs the TypeScript compiler, asset copier, and a server at the same time, all three in "watch mode".
-* `npm run json-server` - runs the json server to run the json file saved locally .
+* `npm run json-server` - runs the json server to run the json file saved locally in "watch mode".
 * `npm run build` - runs the TypeScript compiler and asset copier once.
 * `npm run lint` - runs `tslint` on the project files.
 * `npm run build:watch` - runs the TypeScript compiler and asset copier in "watch mode"; when changes occur to source files, they will be recompiled or copied into `dist/`.

@@ -1,4 +1,4 @@
-export interface Book {
+export interface BookListItem {
     id: string;
     title: string;
     imageUrl: string;

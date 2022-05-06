@@ -1,0 +1,60 @@
+<section style="margin: 2em 5em">
+    <div class="row">
+      <div class="column">
+        <h2>Favorite books :</h2>
+      </div>
+      <div class="add-button" style="justify-self: end">
+        <div class="button -green center" (click)="openAddBookForm()">
+          Add Book
+        </div>
+      </div>
+    </div>
+    <div
+      class="books-wrapper"
+      cdkDropList
+      cdkDropListOrientation="horizontal"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div
+        cdkDrag
+        class="container"
+        *ngFor="let book of booksList; let bookIndex = index"
+      >
+        <div class="post">
+          <div class="header_post">
+            <!-- src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnCjln17ydUIbvLPuhvIQKhc_nloL_iw0TsQ&usqp=CAU" -->
+            <div class="image-area">
+              <img [src]="book.imageUrl" alt="" />
+              <a
+                class="remove-image"
+                (click)="deleteBook(book.id)"
+                style="display: inline"
+                ><i class="fa fa-trash" aria-hidden="true"></i
+              ></a>
+            </div>
+          </div>
+  
+          <div class="body_post">
+            <div class="post_content">
+              <h1>{{ book.title }}</h1>
+              <div class="container_infos">
+                <div class="postedBy">
+                  <span>author</span>
+                  {{ book.authorName }}
+                </div>
+  
+                <div class="container_tags">
+                  <span>year</span>
+                  <div class="tags">
+                    <ul>
+                      <li>{{ book.year }}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

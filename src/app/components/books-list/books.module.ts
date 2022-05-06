@@ -5,13 +5,15 @@ import { BooksListComponent } from './books-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DialogModule } from '@ngneat/dialog';
+import { BookListItemComponent } from '../book-list-item/book-list-item.component';
 
 
 
 @NgModule({
   declarations: [
     BooksListComponent,
-    AddBookComponent
+    AddBookComponent,
+    BookListItemComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,7 @@ import { DialogModule } from '@ngneat/dialog';
   exports: [
     BooksListComponent,
     AddBookComponent,
-  
+    BookListItemComponent
   ]
 })
 export class BooksModule { }

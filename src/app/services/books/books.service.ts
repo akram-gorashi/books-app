@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Observable } from 'rxjs/internal/Observable';
-import { Book } from 'src/app/models/book';
+import { BookListItem } from 'src/app/models/BookListItem';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class BooksService {
   baseAPIUrl = environment.baseAPIUrl;
-  bookListBS = new BehaviorSubject<Book[]>([]);
+  bookListBS = new BehaviorSubject<BookListItem[]>([]);
   constructor(private http: HttpClient) {}
 
   /**
@@ -18,7 +18,7 @@ export class BooksService {
    * @returns Observable of books list
    */
   getBooks() {
-    this.http.get<Book[]>(this.baseAPIUrl + 'books').subscribe((books) => {
+    this.http.get<BookListItem[]>(this.baseAPIUrl + 'books').subscribe((books) => {
       this.bookListBS.next(books);
     });
   }
@@ -27,7 +27,7 @@ export class BooksService {
    *
    * @param book object from the form.
    */
-  addBook(book: Book) {
+  addBook(book: BookListItem) {
     console.log(book);
     return this.http.post(this.baseAPIUrl + 'books', book);
   }

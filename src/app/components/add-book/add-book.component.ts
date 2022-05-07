@@ -40,7 +40,7 @@ export class AddBookComponent implements OnInit {
     } else {
       this.createBookFormGroup.value.id = this.bookId;
       this.booksService
-        .addBook(this.createBookFormGroup.value)
+        .addBook(this.createBookFormGroup.value, "1")
         .subscribe((res) => {
           this.dialog.closeAll();
           // this.booksService.getBooks();

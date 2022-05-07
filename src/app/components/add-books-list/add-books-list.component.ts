@@ -37,7 +37,7 @@ export class AddBooksListComponent implements OnInit {
     } else {
       this.createBooksListFormGroup.value.id = this.bookId;
       this.booksService
-        .addBook(this.createBooksListFormGroup.value)
+        .addBook(this.createBooksListFormGroup.value, "1")
         .subscribe((res) => {
           this.dialog.closeAll();
            this.booksService.getBooksList();

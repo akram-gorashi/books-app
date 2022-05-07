@@ -40,7 +40,6 @@ export class BookListItemComponent implements OnInit {
     });
   }
   drop(event: CdkDragDrop<BookListItem[]>) {
-    console.log(event);
     moveItemInArray(this.booksList.books, event.previousIndex, event.currentIndex);
   }
 

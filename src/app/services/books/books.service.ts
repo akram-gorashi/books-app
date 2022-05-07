@@ -33,7 +33,6 @@ export class BooksService {
    * @param book object from the form.
    */
   addBooksList(booksList: BooksList) {
-    console.log(booksList);
     return this.http.post(this.baseAPIUrl + 'books-list', booksList);
   }
   /**
@@ -60,7 +59,6 @@ export class BooksService {
   }
   addBookListItem(bookListItem: BookListItem, booksListId: string) {
     let booksList = this.bookListBS.value;
-    console.log(booksList);
     booksList.forEach(booklist => {
       if(booklist.id === booksListId) {
         booklist.books.push(bookListItem);
@@ -69,6 +67,5 @@ export class BooksService {
         })
       }
     })
-    console.log('book list after update', booksList)
   }
 }

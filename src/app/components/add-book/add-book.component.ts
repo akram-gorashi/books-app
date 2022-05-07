@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DialogService } from '@ngneat/dialog';
+import { DialogRef, DialogService } from '@ngneat/dialog';
 import { BooksService } from 'src/app/services/books/books.service';
 import * as uuid from 'uuid';
 
@@ -12,14 +12,19 @@ import * as uuid from 'uuid';
 export class AddBookComponent implements OnInit {
   createBookFormGroup!: FormGroup;
   bookId = uuid.v4();
+  booksListId: string= "";
 
   constructor(
     private booksService: BooksService,
     private formBuilder: FormBuilder,
+    private dialogRef: DialogRef,
     private dialog: DialogService
+
   ) {}
   ngOnInit(): void {
     this.initCreateBookForm();
+    this.booksListId = this.dialogRef.data.booksListId;
+    console.log('id passed throw model dialog', this.booksListId)
   }
 
   initCreateBookForm() {
@@ -40,11 +45,10 @@ export class AddBookComponent implements OnInit {
     } else {
       this.createBookFormGroup.value.id = this.bookId;
       this.booksService
-        .addBook(this.createBookFormGroup.value, "1")
-        .subscribe((res) => {
+        .addBookListItem(this.createBookFormGroup.value, this.booksListId);
           this.dialog.closeAll();
-          // this.booksService.getBooks();
-        });
+          this.booksService.getBooksList();
+        
     }
   }
 }

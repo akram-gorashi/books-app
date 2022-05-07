@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { DialogService } from '@ngneat/dialog';
 import { BooksList } from 'src/app/models/BooksList';
 import { BooksService } from 'src/app/services/books/books.service';
@@ -10,7 +10,6 @@ import { AddBooksListComponent } from '../add-books-list/add-books-list.componen
 })
 export class BooksListComponent implements OnInit {
   booksList: BooksList[]= [];
-  
   constructor(private booksService: BooksService,  private dialog: DialogService) {}
 
   ngOnInit(): void {

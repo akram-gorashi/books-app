@@ -1,15 +1,15 @@
 <section style="margin: 2em 5em">
     <div class="row">
       <div class="column">
-        <h2>{{bookListItem.title}} :</h2>
+        <h2>{{booksList.title}} :</h2>
       </div>
       <div class="add-button" style="justify-self: end">
-        <div class="button -primary center" (click)="openAddBookForm()">
+        <div class="button primary-color center" (click)="openAddBookForm()">
           Add Book
         </div>
       </div>
       <div class="add-button" >
-        <div class="button -primary center" (click)="deleteBooksList(bookListItem.id)">
+        <div class="button primary-color center" (click)="deleteBooksList(booksList.id)">
           Remove Books List
         </div>
       </div>
@@ -23,10 +23,10 @@
       <div
         cdkDrag
         class="container"
-        *ngFor="let book of bookListItem.books; let bookIndex = index"
+        *ngFor="let book of booksList.books; let bookIndex = index"
       >
-        <div class="post">
-          <div class="header_post">
+        <div class="book-card">
+          <div class="header-book-card">
             <!-- src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnCjln17ydUIbvLPuhvIQKhc_nloL_iw0TsQ&usqp=CAU" -->
             <div class="image-area">
               <img [src]="book.imageUrl" alt="" />
@@ -39,11 +39,11 @@
             </div>
           </div>
   
-          <div class="body_post">
-            <div class="post_content">
+          <div class="body-book-card">
+            <div class="book-card_content">
               <h1>{{ book.title }}</h1>
               <div class="container_infos">
-                <div class="postedBy">
+                <div class="book-created-by">
                   <span>author</span>
                   {{ book.authorName }}
                 </div>

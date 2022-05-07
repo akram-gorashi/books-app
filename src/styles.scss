@@ -11,11 +11,14 @@
     //  overflow: hidden;
   }
 
+  /* -------------------------------------------------------------------------- */
+  /*                                Button Styles                               */
+  /* -------------------------------------------------------------------------- */
   .button {
     display: flex;
     overflow: hidden;
   
-    margin: 10px;
+    margin: 20px 0 10px 10px;
     padding: 12px 12px;
   
     cursor: pointer;
@@ -43,7 +46,6 @@
     align-items: center;
     flex: 0 0 160px;
     
-    box-shadow: 2px 5px 10px var(--color-smoke);
   
     &:hover {
       transition: all 150ms linear;
@@ -61,8 +63,51 @@
       outline-offset: -4px;
     } 
   }
-  .button.-primary {
+  .button.primary-color {
     color: #fff;
     background: #728af7;
+  }
+  
+  /* -------------------------------------------------------------------------- */
+  /*                             Input Fileds Styles                            */
+  /* -------------------------------------------------------------------------- */
+  .card-form {
+    padding: 2rem 1rem 0;
+  }
+  
+  .input {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    padding-top: 1.5rem;
+    & + .input {
+      margin-top: 1.5rem;
+    }
+  }
+  
+  .input-label {
+    color: #8597a3;
+    position: absolute;
+    top: 1.5rem;
+    transition: 0.25s ease;
+  }
+  
+  .input-field {
+    border: 0;
+    z-index: 1;
+    background-color: transparent;
+    border-bottom: 2px solid #eee;
+    font: inherit;
+    font-size: 1.125rem;
+    padding: 0.25rem 0;
+    &:focus,
+    &:valid {
+      outline: 0;
+      border-bottom-color: #728af7;;
+      & + .input-label {
+        color: #728af7;;
+        transform: translateY(-1.5rem);
+      }
+    }
   }
   

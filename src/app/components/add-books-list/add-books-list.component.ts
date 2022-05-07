@@ -7,7 +7,7 @@ import * as uuid from 'uuid';
 @Component({
   selector: 'app-add-books-list',
   templateUrl: './add-books-list.component.html',
-  styleUrls: ['../add-book/add-book.component.scss']
+  styleUrls: ['./add-books-list.component.scss']
 })
 export class AddBooksListComponent implements OnInit {
   createBooksListFormGroup!: FormGroup;
@@ -26,6 +26,7 @@ export class AddBooksListComponent implements OnInit {
     this.createBooksListFormGroup = this.formBuilder.group({
       id: [],
       title: [null, [Validators.required]],
+      books: [[]]
     });
   }
   get bookFormCtrl() {
@@ -37,7 +38,7 @@ export class AddBooksListComponent implements OnInit {
     } else {
       this.createBooksListFormGroup.value.id = this.bookId;
       this.booksService
-        .addBook(this.createBooksListFormGroup.value, "1")
+        .addBooksList(this.createBooksListFormGroup.value)
         .subscribe((res) => {
           this.dialog.closeAll();
            this.booksService.getBooksList();

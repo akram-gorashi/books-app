@@ -12,7 +12,7 @@ import { AddBookComponent } from '../add-book/add-book.component';
   styleUrls: ['./book-list-item.component.scss']
 })
 export class BookListItemComponent implements OnInit {
-  @Input() bookListItem!: BooksList;
+  @Input() booksList!: BooksList;
 
   constructor(
     private booksService: BooksService,
@@ -20,31 +20,28 @@ export class BookListItemComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getBooks();
   }
-  getBooks() {
-    // this.booksService.getBooks();
-    this.booksService.bookListBS.subscribe((books) => {
-      // this.booksList = books;
-    });
-  }
+ 
 
   deleteBook(bookId: string) {
-    this.booksService.deleteBook(bookId).subscribe((res) => {
-      this.getBooks();
-    });
+    let booksList = this.booksService.bookListBS.value;
+    booksList.forEach(booksList => {
+      if(booksList.id === this.booksList.id) {
+        booksList.books = booksList.books.filter(books => books.id !== bookId);
+      }
+    })
   }
 
   openAddBookForm() {
     this.dialog.open(AddBookComponent, {
       data: {
-        booksListId: this.bookListItem.id
+        booksListId: this.booksList.id
       }
     });
   }
   drop(event: CdkDragDrop<BookListItem[]>) {
     console.log(event);
-    moveItemInArray(this.bookListItem.books, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.booksList.books, event.previousIndex, event.currentIndex);
   }
 
   deleteBooksList(booksListId: string) {

@@ -12,7 +12,11 @@ import { environment } from 'src/environments/environment';
 export class BooksService {
   baseAPIUrl = environment.baseAPIUrl;
   bookListBS = new BehaviorSubject<BooksList[]>([]);
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                 Books List                                 */
+  /* -------------------------------------------------------------------------- */
 
   /**
    *
@@ -24,25 +28,47 @@ export class BooksService {
     });
   }
   /**
-   * Add a new book to books list.
+   * Add a new books list .
    *
    * @param book object from the form.
    */
-  addBook(book: BookListItem, bookId: string) {
-    console.log(book);
-    this.http.get(this.baseAPIUrl + 'books-list')
-    return this.http.post(this.baseAPIUrl + 'books-list', book);
+  addBooksList(booksList: BooksList) {
+    console.log(booksList);
+    return this.http.post(this.baseAPIUrl + 'books-list', booksList);
   }
   /**
-   * remove a book from books list.
-   *
-   * @param bookId string from the book list.
-   */
-  deleteBook(bookId: string) {
-    return this.http.delete(this.baseAPIUrl + 'books-list/' + bookId);
+     * remove a book from books list.
+     *
+     * @param booksListId string from the book list.
+     */
+  deleteBooksList(booksListId: string) {
+    console.log('deleting ....')
+    return this.http.delete(this.baseAPIUrl + 'books-list/' + booksListId);
   }
 
-  deleteBooksList(booksListId: string) {
-    return this.http.delete(this.baseAPIUrl + 'books-list/' + booksListId);
+  /* -------------------------------------------------------------------------- */
+  /*                               Book List Items                              */
+  /* -------------------------------------------------------------------------- */
+
+  /**
+   * remove a book list item.
+   *
+   * @param bookId string from the book list item card.
+   */
+  deleteBookListItem(bookId: string) {
+    return this.http.delete(this.baseAPIUrl + 'books-list/' + bookId);
+  }
+  addBookListItem(bookListItem: BookListItem, booksListId: string) {
+    let booksList = this.bookListBS.value;
+    console.log(booksList);
+    booksList.forEach(booklist => {
+      if(booklist.id === booksListId) {
+        booklist.books.push(bookListItem);
+        this.deleteBooksList(booksListId).subscribe(res => {
+          this.addBooksList(booklist).subscribe(res => {this.getBooksList();})
+        })
+      }
+    })
+    console.log('book list after update', booksList)
   }
 }

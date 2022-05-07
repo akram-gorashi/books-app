@@ -17,7 +17,7 @@ export class AddBooksListComponent implements OnInit {
     private booksService: BooksService,
     private formBuilder: FormBuilder,
     private dialog: DialogService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.initCreateBookForm();
   }
@@ -41,7 +41,7 @@ export class AddBooksListComponent implements OnInit {
         .addBooksList(this.createBooksListFormGroup.value)
         .subscribe((res) => {
           this.dialog.closeAll();
-           this.booksService.getBooksList();
+          this.booksService.getBooksList();
         });
     }
   }

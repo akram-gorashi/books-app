@@ -1,13 +1,9 @@
-<form
-  [formGroup]="createBooksListFormGroup"
-  (ngSubmit)="submitCreateBook()"
-  class="card-form"
->
+<form [formGroup]="createBooksListFormGroup" (ngSubmit)="submitCreateBook()" class="card-form">
   <div class="input">
     <input type="text" class="input-field" formControlName="title" />
     <label class="input-label">Title</label>
   </div>
-  
+
   <div class="action">
     <button type="submit" class="button primary-color center">Add Books List</button>
   </div>

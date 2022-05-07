@@ -57,13 +57,19 @@ export class BooksService {
   deleteBookListItem(bookId: string) {
     return this.http.delete(this.baseAPIUrl + 'books-list/' + bookId);
   }
+  /**
+   * add Book List Item
+   *
+   * @param bookListItem 
+   * @param booksListId
+   */
   addBookListItem(bookListItem: BookListItem, booksListId: string) {
     let booksList = this.bookListBS.value;
     booksList.forEach(booklist => {
-      if(booklist.id === booksListId) {
+      if (booklist.id === booksListId) {
         booklist.books.push(bookListItem);
         this.deleteBooksList(booksListId).subscribe(res => {
-          this.addBooksList(booklist).subscribe(res => {this.getBooksList();})
+          this.addBooksList(booklist).subscribe(res => { this.getBooksList(); })
         })
       }
     })

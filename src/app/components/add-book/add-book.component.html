@@ -1,8 +1,4 @@
-<form
-  [formGroup]="createBookFormGroup"
-  (ngSubmit)="submitCreateBook()"
-  class="card-form"
->
+<form [formGroup]="createBookFormGroup" (ngSubmit)="submitCreateBook()" class="card-form">
   <div class="input">
     <input type="text" class="input-field" formControlName="title" />
     <label class="input-label">Title</label>
@@ -12,8 +8,8 @@
     <label class="input-label">Image Url</label>
   </div>
   <div class="input">
-    <input type="number" class="input-field" formControlName="year" 
-    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
+    <input type="number" class="input-field" formControlName="year"
+      oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
     <label class="input-label">Year</label>
   </div>
   <div class="input">

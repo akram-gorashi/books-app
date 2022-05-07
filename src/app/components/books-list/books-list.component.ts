@@ -9,8 +9,8 @@ import { AddBooksListComponent } from '../add-books-list/add-books-list.componen
   styleUrls: ['./books-list.component.scss'],
 })
 export class BooksListComponent implements OnInit {
-  booksList: BooksList[]= [];
-  constructor(private booksService: BooksService,  private dialog: DialogService) {}
+  booksList: BooksList[] = [];
+  constructor(private booksService: BooksService, private dialog: DialogService) { }
 
   ngOnInit(): void {
     this.getBooksList()

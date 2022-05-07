@@ -11,22 +11,19 @@ import { AddBookComponent } from '../add-book/add-book.component';
   templateUrl: './book-list-item.component.html',
   styleUrls: ['./book-list-item.component.scss']
 })
-export class BookListItemComponent implements OnInit {
+export class BookListItemComponent {
   @Input() booksList!: BooksList;
 
   constructor(
     private booksService: BooksService,
     private dialog: DialogService
-  ) {}
+  ) { }
 
-  ngOnInit(): void {
-  }
- 
 
   deleteBook(bookId: string) {
     let booksList = this.booksService.bookListBS.value;
     booksList.forEach(booksList => {
-      if(booksList.id === this.booksList.id) {
+      if (booksList.id === this.booksList.id) {
         booksList.books = booksList.books.filter(books => books.id !== bookId);
       }
     })
@@ -44,7 +41,7 @@ export class BookListItemComponent implements OnInit {
   }
 
   deleteBooksList(booksListId: string) {
-    this.booksService.deleteBooksList(booksListId).subscribe((res:any) => {
+    this.booksService.deleteBooksList(booksListId).subscribe((res: any) => {
       this.booksService.getBooksList();
     });
   }

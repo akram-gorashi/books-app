@@ -12,7 +12,7 @@ import * as uuid from 'uuid';
 export class AddBookComponent implements OnInit {
   createBookFormGroup!: FormGroup;
   bookId = uuid.v4();
-  booksListId: string= "";
+  booksListId: string = "";
 
   constructor(
     private booksService: BooksService,
@@ -20,7 +20,7 @@ export class AddBookComponent implements OnInit {
     private dialogRef: DialogRef,
     private dialog: DialogService
 
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.initCreateBookForm();
     this.booksListId = this.dialogRef.data.booksListId;
@@ -46,9 +46,9 @@ export class AddBookComponent implements OnInit {
       this.createBookFormGroup.value.id = this.bookId;
       this.booksService
         .addBookListItem(this.createBookFormGroup.value, this.booksListId);
-          this.dialog.closeAll();
-          this.booksService.getBooksList();
-        
+      this.dialog.closeAll();
+      this.booksService.getBooksList();
+
     }
   }
 }

@@ -1,4 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DialogModule, DialogRef, DialogService } from '@ngneat/dialog';
+import { BooksService } from 'src/app/services/books/books.service';
 
 import { AddBookComponent } from './add-book.component';
 
@@ -8,7 +12,9 @@ describe('AddBookComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddBookComponent ]
+      declarations: [ AddBookComponent ],
+      imports: [ HttpClientTestingModule, ReactiveFormsModule, FormsModule, ReactiveFormsModule, DialogModule.forRoot() ],
+      providers: [BooksService, DialogService, DialogRef]
     })
     .compileComponents();
   });

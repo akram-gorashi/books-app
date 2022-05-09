@@ -12,8 +12,8 @@ import { BooksModule } from './components/books-list/books.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BooksModule,
     HttpClientModule,
+    BooksModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

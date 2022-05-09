@@ -6,7 +6,8 @@
     "start": "ng serve --o",
     "json-server": "json-server --watch books-db.json",
     "build": "ng build",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {

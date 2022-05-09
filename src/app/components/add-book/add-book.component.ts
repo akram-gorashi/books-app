@@ -11,7 +11,7 @@ import * as uuid from 'uuid';
 })
 export class AddBookComponent implements OnInit {
   createBookFormGroup!: FormGroup;
-  bookId = uuid.v4();
+  bookId: any = uuid.v4();
   booksListId: string = "";
 
   constructor(
@@ -23,7 +23,7 @@ export class AddBookComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.initCreateBookForm();
-    this.booksListId = this.dialogRef.data.booksListId;
+    this.booksListId = this.dialogRef.data?.booksListId;
     console.log('id passed throw model dialog', this.booksListId)
   }
 

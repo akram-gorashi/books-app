@@ -1,4 +1,8 @@
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DialogModule, DialogService } from '@ngneat/dialog';
+import { BooksService } from 'src/app/services/books/books.service';
 
 import { BookListItemComponent } from './book-list-item.component';
 
@@ -8,7 +12,9 @@ describe('BookListItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BookListItemComponent ]
+      declarations: [ BookListItemComponent ],
+      imports: [ HttpClientTestingModule,  DialogModule.forRoot() , HttpClientModule],
+      providers: [ BooksService, DialogService ]
     })
     .compileComponents();
   });
@@ -19,7 +25,7 @@ describe('BookListItemComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create book list item', () => {
     expect(component).toBeTruthy();
   });
 });

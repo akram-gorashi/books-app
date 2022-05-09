@@ -12,7 +12,7 @@ import { AddBookComponent } from '../add-book/add-book.component';
   styleUrls: ['./book-list-item.component.scss']
 })
 export class BookListItemComponent {
-  @Input() booksList!: BooksList;
+  @Input() booksList: BooksList = {} as BooksList;
 
   constructor(
     private booksService: BooksService,
@@ -32,7 +32,7 @@ export class BookListItemComponent {
   openAddBookForm() {
     this.dialog.open(AddBookComponent, {
       data: {
-        booksListId: this.booksList.id
+        booksListId: this.booksList?.id
       }
     });
   }

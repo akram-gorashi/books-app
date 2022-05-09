@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DialogService } from '@ngneat/dialog';
 import { BooksList } from 'src/app/models/BooksList';
 import { BooksService } from 'src/app/services/books/books.service';

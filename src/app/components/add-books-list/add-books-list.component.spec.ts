@@ -13,11 +13,16 @@ describe('AddBooksListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddBooksListComponent ],
-      imports: [ HttpClientTestingModule,  DialogModule.forRoot() , HttpClientModule, FormsModule, ReactiveFormsModule],
-      providers: [ BooksService, DialogService ]
-    })
-    .compileComponents();
+      declarations: [AddBooksListComponent],
+      imports: [
+        HttpClientTestingModule,
+        DialogModule.forRoot(),
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+      ],
+      providers: [BooksService, DialogService],
+    }).compileComponents();
   });
 
   beforeEach(() => {

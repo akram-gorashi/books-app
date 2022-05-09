@@ -10,11 +10,10 @@ describe('BooksListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BooksListComponent ],
-       imports: [ HttpClientTestingModule,  DialogModule.forRoot() ],
-       providers: [ BooksService, DialogService ]
-    })
-    .compileComponents();
+      declarations: [BooksListComponent],
+      imports: [HttpClientTestingModule, DialogModule.forRoot()],
+      providers: [BooksService, DialogService],
+    }).compileComponents();
   });
 
   beforeEach(() => {

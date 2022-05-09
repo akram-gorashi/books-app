@@ -12,11 +12,14 @@ describe('BookListItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BookListItemComponent ],
-      imports: [ HttpClientTestingModule,  DialogModule.forRoot() , HttpClientModule],
-      providers: [ BooksService, DialogService ]
-    })
-    .compileComponents();
+      declarations: [BookListItemComponent],
+      imports: [
+        HttpClientTestingModule,
+        DialogModule.forRoot(),
+        HttpClientModule,
+      ],
+      providers: [BooksService, DialogService],
+    }).compileComponents();
   });
 
   beforeEach(() => {
